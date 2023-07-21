@@ -26,16 +26,17 @@ export const Login = ({setuser}) => {
     .catch((err)=>console.log(err))
   }
 
+  const islem=(gelendeger)=>{
 
-  const islem = (gelendeger) => {
-    const matchedUser = gelendeger.find((item) => username === item.username && password === item.password);
-    if (matchedUser) {
-      setuser(true);
-      navi('/people');
-    } else {
-      setuser(false);
-    }
-  };
+    gelendeger.map((item)=>{
+
+      username === item.username && password === item.password ? setuser(true) : setuser(false)
+
+    })
+
+    navi("/people")
+
+  }
 
   const handleSubmit=(e)=>{
     e.preventDefault();
