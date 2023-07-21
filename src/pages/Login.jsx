@@ -27,18 +27,15 @@ export const Login = ({setuser}) => {
   }
 
 
-  const islem=(gelendeger)=>{
-
-    gelendeger.map((item)=>{
-
-      username === item.username && password === item.password ? setuser(true) : setuser(false)
-
-    })
-
-    navi("/people")
-
-  }
-
+  const islem = (gelendeger) => {
+    const matchedUser = gelendeger.find((item) => username === item.username && password === item.password);
+    if (matchedUser) {
+      setuser(true);
+      navi('/people');
+    } else {
+      setuser(false);
+    }
+  };
 
   const handleSubmit=(e)=>{
     e.preventDefault();
